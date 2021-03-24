@@ -1,0 +1,362 @@
+$blue1: #0cb7f0;
+$blue2: #b6e9fa;
+$green1: #48d900;
+$green2: #c8f3b2;
+$black: #333333;
+$white: #f2f2f2;
+
+html {
+  font-size: 62.5%;
+  font-family: "Noto Sans JP", sans-serif;
+  background-color: white;
+  color: $black;
+  scroll-behavior: smooth;
+  min-width: 1000px;
+}
+
+ul {
+  list-style: none;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+  &::after {
+    width: 100%;
+    height: 2px;
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    background-color: $black;
+    transition: transform 0.3s;
+    transform: scale(0, 1);
+    transform-origin: right top;
+  }
+  &:hover::after {
+    transform-origin: left top;
+    transform: scale(1, 1);
+  }
+}
+
+button {
+  transition: all 0.3s;
+  &:hover {
+    opacity: 0.8;
+    transform: scale(1.02);
+  }
+}
+
+// カスタムクラス
+.flex {
+  display: flex;
+}
+.f-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.f-align {
+  display: flex;
+  align-items: center;
+}
+.f-justify {
+  display: flex;
+  justify-content: center;
+}
+.f-bet {
+  display: flex;
+  justify-content: space-between;
+}
+
+.contents {
+  width: 1000px;
+  height: 100%;
+  margin: 0 auto;
+}
+
+// ヘッダー
+.header {
+  position: absolute;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  height: 92px;
+  background-color: $white;
+
+  .logo {
+    width: 50%;
+    height: 100%;
+    cursor: pointer;
+  }
+
+  &__lists {
+    font-size: 1.4rem;
+  }
+  &__list {
+    margin-left: 38px;
+  }
+}
+
+// ファーストビュー
+.firstview {
+  height: 100vh;
+  padding-top: 92px;
+
+  // レイアウト
+  &__left {
+    width: 40%;
+    flex-direction: column;
+  }
+  &__right {
+    width: 60%;
+  }
+
+  // 文章
+  &__texts {
+    flex-direction: column;
+    height: 290px;
+    margin-top: 70px;
+  }
+
+  &__ttl {
+    font-size: 6rem;
+    color: $green1;
+    line-height: 60px;
+  }
+  &__subttl {
+    font-size: 3rem;
+    color: $blue1;
+    line-height: 38px;
+  }
+  &__text {
+    font-size: 1.8rem;
+  }
+
+  // ボタン
+  &__btns {
+    flex-direction: column;
+    height: 120px;
+    width: 100%;
+    margin-top: 75px;
+  }
+  &__btn {
+    display: block;
+    height: 54px;
+    width: 180px;
+  }
+  &__btn:first-child {
+    background: url(../images/applestore@2x.png);
+  }
+  &__btn:last-child {
+    background: url(../images/googlestore@2x.png);
+  }
+}
+
+.whats {
+  height: 400px;
+  font-size: 2rem;
+  line-height: 35px;
+  font-weight: bold;
+  text-align: center;
+  p {
+    width: 100%;
+  }
+}
+
+.about {
+  background-color: $green2;
+  padding: 20px;
+  margin: 170px 0;
+
+  .contents {
+    position: relative;
+
+    &::before {
+      content: "";
+      display: block;
+      width: 280px;
+      height: 65px;
+      background-image: url(../images/about__ttl.svg);
+      background-repeat: no-repeat;
+      position: absolute;
+      top: -142px;
+      left: 0;
+    }
+  }
+
+  // レイアウト
+  &__a,
+  &__b {
+    width: 80%;
+    margin: 80px auto;
+  }
+  &__b {
+    flex-direction: row-reverse;
+  }
+
+  // テキスト
+  &__ttl {
+    font-size: 2.5rem;
+    color: $blue1;
+    margin-top: 25px;
+    margin-bottom: 40px;
+  }
+  &__text {
+    font-size: 1.6rem;
+    line-height: 25px;
+  }
+
+  // 画像とワンポイント
+  &__img {
+    position: relative;
+    p {
+      position: absolute;
+      bottom: 106px;
+      font-size: 1.8rem;
+      line-height: 80px;
+      width: 340px;
+      height: 60px;
+      background-repeat: no-repeat;
+      span {
+        color: $blue1;
+      }
+    }
+  }
+  &__a &__img p {
+    background-image: url(../images/about__a.svg);
+    background-position: right bottom;
+    text-align: right;
+    padding-right: 50px;
+    right: 250px;
+  }
+  &__b &__img p {
+    background-image: url(../images/about__b.svg);
+    background-position: left bottom;
+    padding-left: 50px;
+    left: 250px;
+  }
+}
+
+.reviews {
+  background-color: $blue2;
+  padding: 20px;
+  margin: 170px 0;
+
+  .contents {
+    position: relative;
+
+    &::before {
+      content: "";
+      display: block;
+      width: 375px;
+      height: 65px;
+      background-image: url(../images/reviews__ttl.svg);
+      background-repeat: no-repeat;
+      position: absolute;
+      top: -143px;
+      left: 0;
+    }
+  }
+
+  // レイアウト
+  &__a,
+  &__b {
+    width: 640px;
+    margin: 80px auto;
+  }
+  &__a {
+    flex-direction: row-reverse;
+  }
+  &__a &__text {
+    background-image: url(../images/reviews__a.svg);
+  }
+  &__b &__text {
+    background-image: url(../images/reviews__b.svg);
+  }
+  &__ttl {
+    margin-top: 77px;
+    font-size: 2rem;
+    text-align: center;
+    position: relative;
+    &::before,
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 20px;
+      height: 30px;
+      top: 3px;
+    }
+    &::before {
+      background-image: url(../images/reviews__ttl__left.svg);
+      left: 400px;
+    }
+    &::after {
+      background-image: url(../images/reviews__ttl__right.svg);
+      right: 400px;
+    }
+  }
+
+  // 文字
+  &__text {
+    width: 490px;
+    font-size: 1.6rem;
+    line-height: 22px;
+    padding: 20px 36px;
+  }
+  &__user {
+    font-size: 1.4rem;
+    text-align: center;
+  }
+}
+
+.footer {
+  margin-top: 250px;
+  background-image: url(../images/footer__bg.svg);
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: 120%;
+  height: 240px;
+  color: white;
+
+  .contents {
+    flex-direction: column;
+  }
+
+  &__list {
+    font-size: 1.6rem;
+    width: 520px;
+    margin: 0 auto;
+    padding-top: 50px;
+    li a::after {
+      background-color: white;
+    }
+  }
+
+  &__btns {
+    width: 400px;
+    margin: 0 auto;
+  }
+  &__btn {
+    display: block;
+    height: 54px;
+    width: 180px;
+  }
+  &__btn:first-child {
+    background: url(../images/applestore@2x.png);
+  }
+  &__btn:last-child {
+    background: url(../images/googlestore@2x.png);
+  }
+
+  &__copyright {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+  }
+}
+
+// load
